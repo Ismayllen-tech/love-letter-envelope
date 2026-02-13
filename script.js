@@ -3,17 +3,35 @@ const openBtn = document.getElementById("openBtn");
 
 let opened = false;
 
-function openOrGo(){
-  if(!opened){
-    wrap.classList.add("open");
-    opened = true;
-  }else{
-    window.location.href = "message.html";
-  }
+function openEnvelope() {
+  if (opened) return;
+  wrap.classList.add("open");
+  opened = true;
+
+  // Depois que abrir, o botão vira "Ler mensagem"
+  openBtn.textContent = "Ler mensagem 💌";
+  openBtn.setAttribute("data-state", "go");
 }
 
-wrap?.addEventListener("click", openOrGo);
-openBtn?.addEventListener("click", (e) => {
+function goToMessage() {
+  window.location.href = "message.html";
+}
+
+// Clique no envelope abre (uma vez)
+wrap.addEventListener("click", () => {
+  openEnvelope();
+});
+
+// Clique no botão:
+openBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  openOrGo();
+
+  // Se ainda não abriu, abre
+  if (!opened) {
+    openEnvelope();
+    return;
+  }
+
+  // Se já abriu, vai para a próxima página
+  goToMessage();
 });
