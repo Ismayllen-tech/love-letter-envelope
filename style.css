@@ -34,8 +34,16 @@ body{
   text-align:center;
 }
 
-.title{ margin: 6px 0 4px; font-size: clamp(22px, 3vw, 30px); color: var(--red); }
-.subtitle{ margin: 0 0 18px; opacity:.8; }
+.title{
+  margin: 6px 0 4px;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--red);
+}
+
+.subtitle{
+  margin: 0 0 18px;
+  opacity:.8;
+}
 
 /* =========================
    ENVELOPE (INDEX)
@@ -53,29 +61,34 @@ body{
   user-select:none;
 }
 
+/* CARTA */
 .letter{
   position:absolute;
   width: min(520px, 86vw);
   height: 300px;
-  bottom: 44px;
+  bottom: 44px; /* "dentro" do envelope */
   border-radius: 14px;
   background: var(--paper);
   box-shadow: 0 14px 30px rgba(0,0,0,.15);
   overflow:hidden;
+
+  /* fechado */
   transform: translateY(120px) scale(.98);
   opacity: 0;
+
   transition: transform 1s cubic-bezier(.2,.9,.2,1), opacity .7s ease;
   z-index: 1;
 }
 
-/* imagem de fundo dentro da carta (index) */
+/* Imagem de fundo da carta (use sua imagem aqui) */
 .letter-bg{
   position:absolute;
   inset:0;
   background-image: url("assets/bg-carta.png");
   background-size: cover;
   background-position: center;
-  opacity: .22;
+  opacity: .22; /* ajuste da “força” do fundo */
+  filter: saturate(1.08);
 }
 
 .letter-content{
@@ -92,12 +105,17 @@ body{
 .letter-content h2{ margin:0; color: var(--red); }
 .letter-content p{ margin:0; line-height:1.45; }
 
+/* ENVELOPE */
 .envelope{
   position: relative;
   width: min(560px, 90vw);
   height: 220px;
-  z-index: 2;
+
+  /* fechado: envelope em cima */
+  z-index: 4;
+
   filter: drop-shadow(0 18px 22px rgba(0,0,0,.18));
+  transition: transform 900ms cubic-bezier(.2,.9,.2,1);
 }
 
 .env-back{
@@ -120,9 +138,10 @@ body{
   inset:0;
   background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0));
   clip-path: polygon(0 0, 100% 0, 72% 52%, 50% 72%, 28% 52%);
-  opacity:.8;
+  opacity:.85;
 }
 
+/* ABA superior */
 .env-flap{
   position:absolute;
   left:0; right:0;
@@ -138,70 +157,39 @@ body{
   box-shadow: 0 8px 18px rgba(0,0,0,.12);
 }
 
-.open .env-flap{ transform: rotateX(170deg); }
+/* =========================
+   ESTADO ABERTO
+========================= */
+
+/* Aba abre */
+.open .env-flap{
+  transform: rotateX(170deg);
+}
+
+/* Carta sobe, aparece e fica na frente */
 .open .letter{
   opacity: 1;
-  transform: translateY(-70px) scale(1);
+  transform: translateY(-90px) scale(1);
+  z-index: 5;
+}
+
+/* Envelope desce e fica atrás (não tampa a carta) */
+.open .envelope{
+  transform: translateY(35px);
+  z-index: 1;
+  pointer-events: none; /* evita “tapar” cliques/efeitos */
 }
 
 /* =========================
-   PÁGINA DA MENSAGEM
+   BOTÕES
 ========================= */
 
-.message-page{
-  background: radial-gradient(circle at top, #fff, #ffe3ec 45%, #ffc9d8);
-}
-
-.message-card{
-  position:relative;
-  width:min(900px, 96vw);
-  min-height: 520px;
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  overflow:hidden;
-  background: rgba(255,255,255,.85);
-}
-
-.message-bg{
-  position:absolute;
-  inset:0;
-  background-image: url("assets/bg-carta.png");
-  background-size: cover;
-  background-position: center;
-  opacity: .28; /* ajuste aqui se quiser mais/menos visível */
-  filter: saturate(1.05);
-}
-
-.message-content{
-  position:relative;
-  padding: 26px 22px;
+.buttons{
   display:flex;
-  flex-direction:column;
-  gap: 14px;
-  text-align:left;
-  max-width: 720px;
-  margin: 0 auto;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
-
-.message-content h1{
-  margin:0;
-  color: var(--red);
-  font-size: clamp(26px, 3.5vw, 38px);
-}
-
-.message-content p{
-  margin:0;
-  font-size: clamp(16px, 2.2vw, 18px);
-  line-height: 1.6;
-}
-
-.sign{
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-/* Botões */
-.buttons{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
 
 .btn{
   border:0;
@@ -220,9 +208,7 @@ body{
 
 .btn:active{ transform: translateY(1px); }
 
-.btn-outline{
-  background: transparent;
-  color: var(--red);
-  border: 2px solid rgba(197,22,58,.45);
-  box-shadow:none;
+.btn:disabled{
+  opacity: .85;
+  cursor: default;
 }
