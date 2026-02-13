@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Envelope 💌</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <h1 class="title">Tenho uma cartinha pra você 💖</h1>
+      <p class="subtitle">Clique no envelope para abrir</p>
+
+      <div class="envelope-wrap" id="envelopeWrap">
+        <!-- CARTA (sai de dentro do envelope) -->
+        <article class="letter" aria-label="Carta">
+          <div class="letter-bg"></div>
+          <div class="letter-content">
+            <h2>Surpresa…</h2>
+            <p>Quando abrir, você vai para a mensagem 💌</p>
+            <p><strong>(Clique novamente para ir)</strong></p>
+          </div>
+        </article>
+
+        <!-- ENVELOPE -->
+        <div class="envelope" aria-label="Envelope">
+          <div class="env-back"></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="btn" id="openBtn">Abrir</button>
+        <a class="btn btn-outline" href="message.html" id="skipLink">Ir direto</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
