@@ -302,12 +302,13 @@ body{
   }
 
   .message-content {
-    padding: 16px;
+    padding: 18px 26px 20px;
     text-align: left;
   }
 
   .message-content h1 {
     font-size: 24px;
+    margin-left: 0;
   }
 
   .message-content p {
