@@ -240,3 +240,23 @@ body{
   pointer-events: none;
   letter-spacing: 0.5px;
 }
+
+.message-card {
+  position: relative;
+}
+
+.message-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/bg-carta.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 22px;
+  z-index: 1;
+}
+
+.message-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+}
