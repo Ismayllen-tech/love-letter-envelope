@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   openBtn.addEventListener("click", function () {
 
-
     if (wrap) {
       wrap.classList.add("open");
     }
