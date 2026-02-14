@@ -220,8 +220,10 @@ body{
   cursor: pointer;
 }
 
-.envelope-wrap,
-.envelope,
-.letter {
-  pointer-events: none !important;
+.envelope{
+  pointer-events: none;
+}
+
+.letter{
+  pointer-events: none;
 }
