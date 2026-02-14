@@ -8,18 +8,26 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  openBtn.onclick = function () {
+  openBtn.addEventListener("click", function () {
 
-    // animação visual (se existir)
+
     if (wrap) {
       wrap.classList.add("open");
     }
 
-    // redireciona diretamente
     setTimeout(function () {
-      window.location = "/love-letter-envelope/message.html";
-    }, 800);
 
-  };
+      const isGitHub = window.location.hostname.includes("github.io");
+
+      if (isGitHub) {
+        window.location.href = "/love-letter-envelope/message.html";
+      } else {
+        window.location.href = "message.html";
+      }
+
+    }, 1000);
+
+  });
 
 });
+
