@@ -1,23 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
   const wrap = document.getElementById("envelopeWrap");
   const openBtn = document.getElementById("openBtn");
 
   if (!wrap || !openBtn) {
-    console.log("Elemento não encontrado.");
+    alert("Erro: elementos não encontrados.");
     return;
   }
 
-  openBtn.addEventListener("click", function (e) {
-    e.preventDefault();
+  let alreadyOpened = false;
 
-    // Ativa animação
-    wrap.classList.add("open");
+  openBtn.addEventListener("click", () => {
 
-    // Espera animação terminar e redireciona
-    setTimeout(function () {
-      window.location.href = "message.html";
-    }, 1000); // tempo da animação
+    if (alreadyOpened) return;
+    alreadyOpened = true;
+
+    // desativa botão imediatamente
+    openBtn.disabled = true;
+
+    // força o navegador a aplicar a classe visualmente
+    requestAnimationFrame(() => {
+      wrap.classList.add("open");
+
+      // aguarda a animação COMPLETAR
+      setTimeout(() => {
+        window.location.assign("message.html");
+      }, 1200); // tempo seguro
+    });
+
   });
 
 });
