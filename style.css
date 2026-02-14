@@ -177,7 +177,6 @@ body{
 .open .envelope{
   transform: translateY(35px);
   z-index: 1;
- 
 }
 
 /* =========================
@@ -244,6 +243,10 @@ body{
   border-radius: 6px;
 }
 
+/* =========================
+   PÁGINA DA MENSAGEM (MESSAGE)
+========================= */
+
 .message-card {
   position: relative;
   width: min(520px, 92vw);
@@ -268,14 +271,24 @@ body{
   z-index: 2;
   padding: 36px;
   min-height: 100%;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  /* centraliza vertical */
+  align-items: center;      /* centraliza horizontal */
+  text-align: center;       /* centraliza o texto */
+}
+
+/* Limita a largura do texto pra ficar “bonito” e não encostar nas bordas */
+.message-content h1,
+.message-content p,
+.message-content .sign {
+  width: 100%;
+  max-width: 40ch; /* ajuste: 34ch, 38ch, 42ch */
 }
 
 .message-content h1 {
   margin: 0 0 16px;
-  margin-left: 6px;
   color: var(--red);
 }
 
@@ -291,6 +304,10 @@ body{
   font-style: italic;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 600px) {
   .page {
     padding: 16px;
@@ -301,14 +318,15 @@ body{
     border-radius: 18px;
   }
 
+  /* Mantém centralizado no mobile também */
   .message-content {
-    padding: 18px 30px 20px 34px;
-    text-align: left;
+    padding: 18px 22px;
+    text-align: center;
+    align-items: center;
   }
 
   .message-content h1 {
     font-size: 24px;
-    margin-left: 2px;
   }
 
   .message-content p {
