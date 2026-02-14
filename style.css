@@ -51,7 +51,7 @@ body{
 
 .envelope-wrap{
   position: relative;
-  width: min(640px, 92vw);
+  width: min(560px, 92vw);
   height: 360px;
   margin: 0 auto 18px;
   display:flex;
@@ -64,7 +64,8 @@ body{
 /* CARTA */
 .letter{
   position:absolute;
-  width: min(520px, 86vw);
+  width: 100%;
+  max-width: 520px;
   height: 300px;
   bottom: 44px; /* "dentro" do envelope */
   border-radius: 14px;
@@ -108,7 +109,8 @@ body{
 /* ENVELOPE */
 .envelope{
   position: relative;
-  width: min(560px, 90vw);
+  width: 100%;
+  max-width: 560px;
   height: 220px;
 
   /* fechado: envelope em cima */
@@ -231,7 +233,7 @@ body{
 .envelope-label{
   position: absolute;
   top: 85%;
-  left: 22%;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-size: 16px;
   font-weight: 600;
@@ -299,24 +301,23 @@ body{
   }
 
   .envelope-wrap {
+    width: 92vw;
     height: 300px;
   }
 
   .letter {
-    width: 90vw;
+    width: 100%;
     height: 260px;
     bottom: 38px;
   }
 
   .envelope {
-    width: 92vw;
+    width: 100%;
     height: 200px;
   }
 
   .envelope-label {
-    left: 50%;
     top: 80%;
-    transform: translate(-50%, -50%);
     font-size: 14px;
     padding: 6px 12px;
   }
@@ -341,5 +342,33 @@ body{
 
   .buttons {
     justify-content: center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .card {
+    width: 92vw;
+    padding: 20px 16px 24px;
+  }
+
+  .envelope-wrap {
+    width: 88vw;
+    height: 330px;
+  }
+
+  .letter {
+    height: 280px;
+  }
+
+  .envelope {
+    height: 210px;
+  }
+
+  .open .letter {
+    transform: translateY(-70px) scale(1);
+  }
+
+  .open .envelope {
+    transform: translateY(28px);
   }
 }
