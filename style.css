@@ -51,7 +51,7 @@ body{
 
 .envelope-wrap{
   position: relative;
-  width: min(560px, 92vw);
+  width: min(480px, 88vw);
   height: 360px;
   margin: 0 auto 18px;
   display:flex;
@@ -65,7 +65,7 @@ body{
 .letter{
   position:absolute;
   width: 100%;
-  max-width: 520px;
+  max-width: 440px;
   height: 300px;
   bottom: 44px; /* "dentro" do envelope */
   border-radius: 14px;
@@ -110,7 +110,7 @@ body{
 .envelope{
   position: relative;
   width: 100%;
-  max-width: 560px;
+  max-width: 480px;
   height: 220px;
 
   /* fechado: envelope em cima */
