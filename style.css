@@ -177,7 +177,7 @@ body{
 .open .envelope{
   transform: translateY(35px);
   z-index: 1;
-  pointer-events: none; /* evita “tapar” cliques/efeitos */
+ 
 }
 
 /* =========================
