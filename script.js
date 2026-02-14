@@ -1,28 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const wrap = document.getElementById("envelopeWrap");
   const openBtn = document.getElementById("openBtn");
+  const wrap = document.getElementById("envelopeWrap");
 
-  if (!wrap || !openBtn) {
-    alert("Erro: elementos não encontrados.");
+  if (!openBtn) {
+    alert("Botão não encontrado.");
     return;
   }
 
-  openBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+  openBtn.onclick = function () {
 
-    // ativa animação
-    wrap.classList.add("open");
+    // animação visual (se existir)
+    if (wrap) {
+      wrap.classList.add("open");
+    }
 
-    // desativa botão
-    openBtn.disabled = true;
-    openBtn.textContent = "Abrindo…";
+    // redireciona diretamente
+    setTimeout(function () {
+      window.location = "/love-letter-envelope/message.html";
+    }, 800);
 
-    // espera animação e redireciona
-    setTimeout(() => {
-      window.location.href = "https://ismayllen-tech.github.io/love-letter-envelope/message.html";
-    }, 1200);
-
-  });
+  };
 
 });
