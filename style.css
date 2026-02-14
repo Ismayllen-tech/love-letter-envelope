@@ -275,6 +275,7 @@ body{
 
 .message-content h1 {
   margin: 0 0 16px;
+  margin-left: 6px;
   color: var(--red);
 }
 
@@ -286,7 +287,7 @@ body{
 }
 
 .message-content .sign {
-  margin-top: 24px;
+  margin-top: 10px;
   font-style: italic;
 }
 
