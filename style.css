@@ -302,7 +302,7 @@ body{
   }
 
   .message-content {
-    padding: 20px;
+    padding: 16px;
     text-align: left;
   }
 
@@ -312,6 +312,7 @@ body{
 
   .message-content p {
     font-size: 0.8em;
+    line-height: 1.5;
   }
 
   .buttons {
