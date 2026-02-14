@@ -1,21 +1,23 @@
-const wrap = document.getElementById("envelopeWrap");
-const openBtn = document.getElementById("openBtn");
+document.addEventListener("DOMContentLoaded", function () {
 
-function openAndGo() {
-  // adiciona classe que ativa a animação
-  wrap.classList.add("open");
+  const wrap = document.getElementById("envelopeWrap");
+  const openBtn = document.getElementById("openBtn");
 
-  // desativa botão para evitar clique duplo
-  openBtn.disabled = true;
+  if (!wrap || !openBtn) {
+    console.log("Elemento não encontrado.");
+    return;
+  }
 
-  // tempo da animação (900ms no CSS)
-  setTimeout(() => {
-    window.location.href = "message.html";
-  }, 1000); // 1 segundo
-}
+  openBtn.addEventListener("click", function (e) {
+    e.preventDefault();
 
-// Clique no botão abre e já redireciona
-openBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  openAndGo();
+    // Ativa animação
+    wrap.classList.add("open");
+
+    // Espera animação terminar e redireciona
+    setTimeout(function () {
+      window.location.href = "message.html";
+    }, 1000); // tempo da animação
+  });
+
 });
