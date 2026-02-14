@@ -293,6 +293,34 @@ body{
     padding: 16px;
   }
 
+  .card {
+    width: 94vw;
+    padding: 18px 14px 22px;
+  }
+
+  .envelope-wrap {
+    height: 300px;
+  }
+
+  .letter {
+    width: 90vw;
+    height: 260px;
+    bottom: 38px;
+  }
+
+  .envelope {
+    width: 92vw;
+    height: 200px;
+  }
+
+  .envelope-label {
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
   .message-card {
     width: min(520px, 94vw);
     border-radius: 18px;
