@@ -212,3 +212,16 @@ body{
   opacity: .85;
   cursor: default;
 }
+
+.btn {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+.envelope-wrap,
+.envelope,
+.letter {
+  pointer-events: none !important;
+}
