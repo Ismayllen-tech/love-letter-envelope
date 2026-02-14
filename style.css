@@ -246,8 +246,9 @@ body{
 
 .message-card {
   position: relative;
-  width: min(520px, 86vw);
-  height: 400px;
+  width: min(520px, 92vw);
+  min-height: 360px;
+  height: auto;
   border-radius: 22px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -265,8 +266,8 @@ body{
 .message-content {
   position: relative;
   z-index: 2;
-  padding: 40px;
-  height: 100%;
+  padding: 36px;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -285,4 +286,32 @@ body{
 .message-content .sign {
   margin-top: 24px;
   font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 16px;
+  }
+
+  .message-card {
+    width: min(520px, 94vw);
+    border-radius: 18px;
+  }
+
+  .message-content {
+    padding: 20px;
+    text-align: left;
+  }
+
+  .message-content h1 {
+    font-size: 22px;
+  }
+
+  .message-content p {
+    font-size: 15px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
 }
