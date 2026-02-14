@@ -227,3 +227,15 @@ body{
 .letter{
   pointer-events: none;
 }
+
+.envelope-label{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--red);
+  z-index: 3;
+  pointer-events: none;
+}
